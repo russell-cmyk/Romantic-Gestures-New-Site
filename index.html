@@ -13,7 +13,7 @@
     <meta property="og:title" content="Home of NZ's Romantic Gestures | Romantic Gestures NZ">
     <meta property="og:image" content="images/service2.jpg">
 
-    <link rel="icon" type="image/png" href="favicon-rglogo.png">
+    <link rel="icon" type="image/png" href="images/favicon-rglogo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,21 +23,22 @@
     <script src="footer.js"></script>
 
     <style>
-        /* --- GLOBAL & TYPOGRAPHY --- */
+        /* --- GLOBAL & LUXURY TYPOGRAPHY --- */
         :root {
-            --slate-blue: #0A1128;
-            --champagne-gold: #D4AF37;
-            --blush-cream: #FCFAF9;
-            --text-dark: #2A2A2A;
-            --text-light: #FFFFFF;
-            --accent-red: #8B0000;
+            /* NEW BOUTIQUE PALETTE MATCHING THE LOGO */
+            --brand-charcoal: #2b2626; /* Deep espresso/charcoal replacing heavy navy */
+            --brand-burgundy: #6c2b35; /* Rich, romantic wine red */
+            --brand-gold: #c5a880; /* Soft, champagne metallic */
+            --bg-ivory: #fcf9f5; /* Warm, bridal ivory background */
+            --text-dark: #3a3333;
+            --text-light: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--blush-cream);
+            background-color: var(--bg-ivory);
             color: var(--text-dark);
             line-height: 1.8;
             font-weight: 300;
@@ -46,7 +47,7 @@
         h1, h2, h3, h4 { 
             font-family: 'Playfair Display', serif; 
             font-weight: 400; 
-            color: var(--slate-blue);
+            color: var(--brand-charcoal);
         }
         
         a { text-decoration: none; color: inherit; transition: color 0.4s ease; }
@@ -57,31 +58,31 @@
         .age-popup-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 17, 40, 0.85); 
-            backdrop-filter: blur(8px); 
+            background: rgba(43, 38, 38, 0.85); /* Matches brand charcoal */
+            backdrop-filter: blur(10px); 
             z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 1;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.6s ease;
         }
         .age-popup-box {
-            background: var(--blush-cream);
+            background: var(--bg-ivory);
             padding: 60px 50px;
             max-width: 550px;
             width: 90%;
             text-align: center;
-            border-radius: 4px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            border-top: 3px solid var(--champagne-gold);
+            border-radius: 2px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border-top: 4px solid var(--brand-burgundy);
             transform: translateY(0);
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
         .age-popup-box h2 {
             font-size: 1.8rem;
             margin-bottom: 15px;
-            color: var(--slate-blue);
+            color: var(--brand-charcoal);
             font-style: italic;
             line-height: 1.4;
         }
@@ -90,36 +91,32 @@
             color: #555;
             margin-bottom: 35px;
         }
-        .age-popup-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .age-popup-overlay.hidden .age-popup-box {
-            transform: translateY(20px);
-        }
+        .age-popup-overlay.hidden { opacity: 0; pointer-events: none; }
+        .age-popup-overlay.hidden .age-popup-box { transform: translateY(20px); }
 
-        /* --- BUTTONS --- */
+        /* --- BOUTIQUE BUTTONS --- */
         .btn-luxury {
             display: inline-block; 
-            font-size: 0.8rem; 
+            font-size: 0.75rem; 
             text-transform: uppercase; 
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             padding: 16px 45px; 
-            border: 1px solid var(--champagne-gold); 
-            color: var(--slate-blue);
+            border: 1px solid var(--brand-gold); 
+            color: var(--brand-charcoal);
             background: transparent;
             transition: all 0.5s ease; 
             cursor: pointer;
             font-weight: 400;
-            border-radius: 2px;
+            border-radius: 1px;
         }
         .btn-luxury:hover { 
-            background-color: var(--champagne-gold); 
+            background-color: var(--brand-gold); 
             color: var(--text-light); 
         }
-        .btn-luxury.btn-light { color: var(--text-light); }
-        .btn-luxury.btn-solid { background-color: var(--slate-blue); color: var(--text-light); border-color: var(--slate-blue); }
-        .btn-luxury.btn-solid:hover { background-color: var(--champagne-gold); border-color: var(--champagne-gold); color: var(--slate-blue); }
+        .btn-luxury.btn-light { color: var(--text-light); border-color: var(--text-light); }
+        .btn-luxury.btn-light:hover { background-color: var(--text-light); color: var(--brand-charcoal); }
+        .btn-luxury.btn-solid { background-color: var(--brand-burgundy); color: var(--text-light); border-color: var(--brand-burgundy); }
+        .btn-luxury.btn-solid:hover { background-color: var(--brand-charcoal); border-color: var(--brand-charcoal); }
 
         /* --- HERO SLIDER --- */
         .hero-slider {
@@ -134,7 +131,8 @@
         .slide.active { opacity: 1; z-index: 2; }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(10, 17, 40, 0.4), rgba(10, 17, 40, 0.7));
+            /* Warm dark overlay to complement the ivory/burgundy theme */
+            background: linear-gradient(to bottom, rgba(43, 38, 38, 0.4), rgba(43, 38, 38, 0.7));
             z-index: 3;
         }
         .hero-content {
@@ -142,33 +140,33 @@
             max-width: 900px; padding: 0 20px; animation: fadeIn 2s ease-out;
         }
         .hero-content h1 { 
-            font-size: 5rem; margin-bottom: 25px; line-height: 1.1; 
+            font-size: 5.5rem; margin-bottom: 25px; line-height: 1.1; 
             color: var(--text-light); font-style: italic;
         }
         .hero-content p { 
-            font-size: 1.3rem; margin-bottom: 45px; font-family: 'Playfair Display', serif; font-weight: 300; letter-spacing: 1px;
+            font-size: 1.3rem; margin-bottom: 45px; font-family: 'Playfair Display', serif; font-weight: 300; letter-spacing: 1.5px;
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* --- INTRO SECTION --- */
-        .intro-section { padding: 70px 20px 40px; text-align: center; }
-        .intro-section h2 { font-size: 3.2rem; margin-bottom: 20px; }
-        .intro-section p { max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; color: #555; }
+        .intro-section { padding: 80px 20px 50px; text-align: center; }
+        .intro-section h2 { font-size: 3.2rem; margin-bottom: 20px; color: var(--brand-burgundy); }
+        .intro-section p { max-width: 800px; margin: 0 auto 30px; font-size: 1.15rem; color: var(--text-dark); }
         
         .quote-block {
-            margin: 30px auto; font-size: 2.2rem; color: var(--champagne-gold);
+            margin: 40px auto; font-size: 2.4rem; color: var(--brand-gold);
             font-family: 'Playfair Display', serif; font-style: italic;
         }
 
         /* --- SERVICES GRID --- */
-        .services-section { padding: 20px 20px 70px; }
+        .services-section { padding: 20px 20px 80px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         
         .service-card {
-            position: relative; display: block; overflow: hidden; border-radius: 4px;
+            position: relative; display: block; overflow: hidden; border-radius: 2px;
             aspect-ratio: 4 / 3; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
         }
         .card-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -176,7 +174,7 @@
         }
         .card-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(10, 17, 40, 0.85) 0%, rgba(10, 17, 40, 0.1) 100%);
+            background: linear-gradient(to top, rgba(43, 38, 38, 0.85) 0%, rgba(43, 38, 38, 0.1) 100%);
             transition: background 0.6s ease;
         }
         .card-content {
@@ -184,90 +182,90 @@
             padding: 40px; display: flex; flex-direction: column; justify-content: flex-end;
             align-items: center; text-align: center; color: var(--text-light); z-index: 2;
         }
-        .card-title { font-size: 2rem; margin-bottom: 10px; color: var(--text-light); transition: transform 0.6s ease; font-style: italic; }
-        .card-subtitle { font-size: 0.9rem; opacity: 0; transform: translateY(15px); transition: all 0.6s ease; line-height: 1.6; font-weight: 300; }
+        .card-title { font-size: 2.2rem; margin-bottom: 10px; color: var(--text-light); transition: transform 0.6s ease; font-style: italic; }
+        .card-subtitle { font-size: 0.9rem; opacity: 0; transform: translateY(15px); transition: all 0.6s ease; line-height: 1.7; font-weight: 300; }
         
         .service-card:hover .card-bg { transform: scale(1.05); }
-        .service-card:hover .card-overlay { background: linear-gradient(to top, rgba(10, 17, 40, 0.95), rgba(10, 17, 40, 0.4)); }
-        .service-card:hover .card-title { transform: translateY(-10px); color: var(--champagne-gold); }
+        .service-card:hover .card-overlay { background: linear-gradient(to top, rgba(108, 43, 53, 0.9), rgba(43, 38, 38, 0.3)); } /* Burgundy hover */
+        .service-card:hover .card-title { transform: translateY(-10px); color: var(--brand-gold); }
         .service-card:hover .card-subtitle { opacity: 1; transform: translateY(0); }
 
         /* --- FEATURE SPLIT (FLASH MOBS) --- */
-        .feature-split { display: flex; align-items: center; padding: 70px 20px; background-color: #FFFFFF; }
+        .feature-split { display: flex; align-items: center; padding: 80px 20px; background-color: #FFFFFF; }
         .feature-split-inner { display: flex; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: center; flex-wrap: wrap; }
-        .feature-video { flex: 1; min-width: 300px; position: relative; padding-bottom: 31.25%; height: 0; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .feature-video { flex: 1; min-width: 300px; position: relative; padding-bottom: 31.25%; height: 0; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-radius: 2px;}
         .feature-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .feature-text { flex: 1; min-width: 300px; }
-        .feature-text h2 { font-size: 3.2rem; margin-bottom: 25px; font-style: italic; }
-        .feature-text p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 35px; color: #555; }
+        .feature-text h2 { font-size: 3.2rem; margin-bottom: 25px; font-style: italic; color: var(--brand-burgundy); }
+        .feature-text p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 35px; color: var(--text-dark); }
 
         /* --- BLOG & VIDEOS --- */
-        .media-section { padding: 70px 20px; }
+        .media-section { padding: 80px 20px; }
         .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; }
-        .blog-card { background: white; padding: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-top: 2px solid var(--champagne-gold); }
-        .blog-date { font-size: 0.75rem; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block;}
+        .blog-card { background: white; padding: 60px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-top: 3px solid var(--brand-burgundy); border-radius: 2px;}
+        .blog-date { font-size: 0.75rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; font-weight: 500;}
         .video-grid { display: flex; flex-direction: column; gap: 30px; justify-content: center; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-radius: 2px;}
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         /* --- CONTACT & PARTNERS --- */
-        .contact-partners { padding: 80px 20px; background-color: var(--slate-blue); color: white; }
+        .contact-partners { padding: 90px 20px; background-color: var(--brand-charcoal); color: white; }
         .cp-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; max-width: 1200px; margin: 0 auto; }
-        .cp-grid h2 { color: var(--champagne-gold); margin-bottom: 30px; font-size: 2.8rem; font-style: italic; }
-        .cp-grid p { color: #E0E0E0; margin-bottom: 40px; font-weight: 300; }
+        .cp-grid h2 { color: var(--brand-gold); margin-bottom: 30px; font-size: 2.8rem; font-style: italic; }
+        .cp-grid p { color: #E0E0E0; margin-bottom: 40px; font-weight: 300; line-height: 1.8;}
         
         .partners-logos { display: flex; flex-wrap: wrap; gap: 25px; align-items: center; }
-        .partners-logos img { max-width: 130px; opacity: 0.9; transition: opacity 0.4s; }
-        .partners-logos img:hover { opacity: 1; }
+        .partners-logos img { max-width: 130px; opacity: 0.8; transition: opacity 0.4s; filter: grayscale(20%);}
+        .partners-logos img:hover { opacity: 1; filter: grayscale(0%);}
 
         /* --- REDESIGNED COMPACT CONTACT FORM WITH CRM INTEGRATION --- */
         .contact-form { 
-            background: var(--blush-cream); 
-            padding: 45px; 
-            border-radius: 4px;
+            background: var(--bg-ivory); 
+            padding: 50px; 
+            border-radius: 2px;
             color: var(--text-dark); 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
         }
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
         }
-        .form-group { margin-bottom: 20px; }
+        .form-group { margin-bottom: 25px; }
         .form-group label { 
-            display: block; font-size: 0.7rem; margin-bottom: 5px; 
-            text-transform: uppercase; letter-spacing: 1.5px; 
-            color: var(--slate-blue); font-weight: 500;
+            display: block; font-size: 0.7rem; margin-bottom: 8px; 
+            text-transform: uppercase; letter-spacing: 2px; 
+            color: var(--brand-charcoal); font-weight: 500;
         }
         .form-group input[type="text"], .form-group input[type="tel"], .form-group input[type="email"], .form-group select, .form-group textarea {
             width: 100%; 
             padding: 10px 0; 
             border: none;
-            border-bottom: 1px solid rgba(10, 17, 40, 0.2); 
+            border-bottom: 1px solid rgba(43, 38, 38, 0.2); 
             background: transparent;
             font-family: 'Montserrat', sans-serif; 
-            transition: all 0.4s; font-size: 0.9rem;
-            color: var(--slate-blue);
+            transition: all 0.4s; font-size: 0.95rem;
+            color: var(--brand-charcoal);
         }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none; 
-            border-bottom: 1px solid var(--champagne-gold); 
+            border-bottom: 1px solid var(--brand-burgundy); 
         }
-        .checkbox-group { display: flex; align-items: center; gap: 12px; margin-top: 10px; margin-bottom: 25px; }
-        .checkbox-group label { margin-bottom: 0; text-transform: none; letter-spacing: 0.5px; font-weight: 400; font-size: 0.85rem;}
+        .checkbox-group { display: flex; align-items: center; gap: 12px; margin-top: 15px; margin-bottom: 30px; }
+        .checkbox-group label { margin-bottom: 0; text-transform: none; letter-spacing: 0.5px; font-weight: 400; font-size: 0.85rem; color: #555;}
         
         .btn-submit {
-            background-color: var(--champagne-gold); color: var(--slate-blue); border: none;
+            background-color: var(--brand-burgundy); color: var(--text-light); border: none;
             padding: 18px 30px; font-family: 'Montserrat', sans-serif; text-transform: uppercase;
-            letter-spacing: 2px; font-weight: 500; cursor: pointer; transition: background 0.4s; width: 100%;
+            letter-spacing: 3px; font-weight: 500; cursor: pointer; transition: background 0.4s; width: 100%;
         }
-        .btn-submit:hover { background-color: var(--slate-blue); color: var(--text-light); }
+        .btn-submit:hover { background-color: var(--brand-charcoal); }
 
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 3.5rem; }
             .cp-grid, .media-grid, .form-row { grid-template-columns: 1fr; }
             .feature-video { padding-bottom: 56.25%; }
-            .blog-card { padding: 30px; }
+            .blog-card { padding: 35px; }
         }
     </style>
 </head>
@@ -358,10 +356,10 @@
     <section class="media-section">
         <div class="media-grid">
             <div class="blog-card">
-                <h2 style="font-size: 2.2rem; margin-bottom: 20px;">From the Blog</h2>
+                <h2 style="font-size: 2.2rem; margin-bottom: 20px; color: var(--brand-charcoal);">From the Blog</h2>
                 <h3><a href="/blog/post/159520/is-your-valentines-bouquet-toxic/">Is your Valentine’s bouquet toxic?</a></h3>
                 <span class="blog-date">January 30, 2026</span>
-                <p style="margin-bottom: 30px; font-weight: 300; color: #555;">Big bouquets of red roses and delicious boxes of chocolates are lovely to receive on Valentines Day (if that’s what you like) but are they sustainable? Did you know that in 2023, New Zealand imported $2.34M of cut flowers, mainly from India, Columbia and Bolivia.These imported flowers (think...</p>
+                <p style="margin-bottom: 35px; font-weight: 300; color: #555;">Big bouquets of red roses and delicious boxes of chocolates are lovely to receive on Valentines Day (if that’s what you like) but are they sustainable? Did you know that in 2023, New Zealand imported $2.34M of cut flowers, mainly from India, Columbia and Bolivia.These imported flowers (think...</p>
                 <a href="/blog/post/159520/is-your-valentines-bouquet-toxic/" class="btn-luxury">Read More</a>
             </div>
             <div class="video-grid">
@@ -390,7 +388,7 @@
                         <img src="images/helicopter.jpg" alt="Adventure Helicopters">
                     </a>
                     <a href="https://www.newzealand.com/int/" target="_blank">
-                        <img src="images/newzealand-tourism.png" alt="100% Pure New Zealand" style="background:#0A1128; padding: 10px;">
+                        <img src="images/newzealand-tourism.png" alt="100% Pure New Zealand" style="background:var(--brand-charcoal); padding: 5px;">
                     </a>
                     <a href="https://coupleschoice.nz/winners-2025/" target="_blank">
                         <img src="images/couple-choice.png" alt="Couples Choice Winner">
@@ -399,7 +397,7 @@
             </div>
 
             <div class="contact-form">
-                <h3 style="margin-bottom: 25px; font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--slate-blue); font-style: italic;">Enquire Now</h3>
+                <h3 style="margin-bottom: 25px; font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--brand-charcoal); font-style: italic;">Enquire Now</h3>
                 
                 <form id="contactForm" name="contactForm">
                     
@@ -495,45 +493,41 @@
             btnOver18.addEventListener('click', () => {
                 sessionStorage.setItem('ageVerified', 'true');
                 agePopup.classList.add('hidden');
-                setTimeout(() => { agePopup.style.display = 'none'; }, 500); 
+                setTimeout(() => { agePopup.style.display = 'none'; }, 600); 
             });
 
             // --- CRM / GOOGLE SHEETS SUBMISSION LOGIC ---
-            // Your Live Google Apps Script URL provided
             const scriptURL = 'https://script.google.com/macros/s/AKfycbyBNHQLYkRTPkjvwcX1BJyjFdBOULFE8BJwWQZ9hjJqJx8qd3rfZv91LI5qcCK5OFkqgQ/exec';
             const form = document.forms['contactForm'];
             const submitBtn = document.getElementById('submitBtn');
             const formStatus = document.getElementById('formStatus');
 
             form.addEventListener('submit', e => {
-                e.preventDefault(); // Stop the page from reloading
+                e.preventDefault(); 
                 
-                // UX Feedback
                 submitBtn.textContent = 'Sending...';
                 submitBtn.disabled = true;
                 formStatus.textContent = '';
 
-                // Send data to Google Apps Script
                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                     .then(response => {
                         submitBtn.textContent = 'Send';
                         submitBtn.disabled = false;
                         formStatus.textContent = "Thank you! Your enquiry has been sent successfully.";
-                        formStatus.style.color = "var(--slate-blue)";
+                        formStatus.style.color = "var(--brand-burgundy)";
                         
-                        // Fire a Facebook Pixel Lead Event
                         if (typeof fbq === 'function') {
                             fbq('track', 'Lead');
                         }
                         
-                        form.reset(); // Clear the form
+                        form.reset(); 
                     })
                     .catch(error => {
                         console.error('Error!', error.message);
                         submitBtn.textContent = 'Send';
                         submitBtn.disabled = false;
                         formStatus.textContent = "Oops! Something went wrong. Please try again.";
-                        formStatus.style.color = "var(--accent-red)";
+                        formStatus.style.color = "var(--brand-charcoal)";
                     });
             });
         });
