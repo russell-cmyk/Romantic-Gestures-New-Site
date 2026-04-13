@@ -6,47 +6,47 @@ class SiteFooter extends HTMLElement {
             .main-footer {
                 background-color: var(--brand-charcoal);
                 color: var(--text-light);
-                padding: 80px 20px 40px;
+                padding: 50px 20px 20px; /* Reduced from 80px to pull it closer to the contact form */
                 font-family: 'Montserrat', sans-serif;
             }
             .footer-container {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 50px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 40px;
                 max-width: 1200px;
                 margin: 0 auto;
             }
             .footer-col h3 {
                 font-family: 'Playfair Display', serif;
-                font-size: 1.8rem;
+                font-size: 1.5rem;
                 color: var(--brand-gold);
-                margin-bottom: 25px;
+                margin-bottom: 20px;
                 font-weight: 400;
                 font-style: italic;
             }
             .footer-col p {
                 font-size: 0.85rem;
-                line-height: 1.9;
+                line-height: 1.8;
                 opacity: 0.8;
                 margin-bottom: 15px;
                 letter-spacing: 0.5px;
             }
             .social-icons {
                 display: flex;
-                gap: 20px;
-                margin-bottom: 20px;
+                gap: 15px;
+                margin-bottom: 15px;
             }
             .social-icons a svg {
                 fill: var(--text-light);
-                width: 20px;
-                height: 20px;
+                width: 18px;
+                height: 18px;
                 transition: fill 0.4s ease, transform 0.4s ease;
             }
             .social-icons a:hover svg { fill: var(--brand-gold); transform: translateY(-3px); }
             .footer-bottom {
                 text-align: center;
-                margin-top: 60px;
-                padding-top: 30px;
+                margin-top: 40px;
+                padding-top: 20px;
                 border-top: 1px solid rgba(197, 168, 128, 0.2);
                 font-size: 0.75rem;
                 letter-spacing: 1px;
@@ -55,7 +55,7 @@ class SiteFooter extends HTMLElement {
             }
             .footer-bottom a { color: var(--brand-gold); text-decoration: none; transition: color 0.3s; }
             .footer-bottom a:hover { color: var(--text-light); text-decoration: underline; }
-            .shielded-container { margin-top: 30px; text-align: left; }
+            .shielded-container { margin-top: 20px; text-align: left; }
         </style>
         <footer class="main-footer">
             <div class="footer-container">
