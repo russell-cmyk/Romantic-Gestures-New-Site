@@ -6,11 +6,11 @@ class SiteHeader extends HTMLElement {
             .main-header {
                 background-color: var(--brand-charcoal);
                 color: var(--text-light);
-                padding: 15px 0; 
+                padding: 15px 0; /* Slightly reduced padding to frame the logo perfectly */
                 position: sticky;
                 top: 0;
                 z-index: 1000;
-                font-family: 'Raleway', sans-serif;
+                font-family: 'Montserrat', sans-serif;
                 box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             }
             .nav-container {
@@ -21,18 +21,23 @@ class SiteHeader extends HTMLElement {
                 margin: 0 auto;
                 padding: 0 20px;
             }
+            
+            /* --- BRAND LOGO STYLING --- */
             .nav-logo a {
                 display: flex;
                 align-items: center;
                 text-decoration: none;
             }
             .brand-logo {
-                max-height: 65px; 
+                max-height: 65px; /* Ensures the logo is prominent but balanced */
                 width: auto;
                 display: block;
                 transition: transform 0.4s ease;
             }
-            .brand-logo:hover { transform: scale(1.02); }
+            .brand-logo:hover {
+                transform: scale(1.02); /* Very subtle luxury hover effect */
+            }
+
             .nav-links {
                 display: flex;
                 gap: 35px;
@@ -44,15 +49,17 @@ class SiteHeader extends HTMLElement {
                 font-size: 0.8rem;
                 text-transform: uppercase;
                 letter-spacing: 2.5px;
-                font-weight: 500;
+                font-weight: 300;
                 transition: color 0.4s ease;
             }
-            .nav-links a:hover { color: var(--brand-gold); }
+            .nav-links a:hover {
+                color: var(--brand-gold);
+            }
             .dropdown { position: relative; display: inline-block; }
             .dropdown-content {
                 display: none;
                 position: absolute;
-                background-color: var(--brand-charcoal); 
+                background-color: rgba(43, 38, 38, 0.98); 
                 min-width: 220px;
                 box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
                 z-index: 1;
