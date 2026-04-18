@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Home of NZ's Romantic Gestures | Romantic Gestures NZ</title>
+    <meta name="title" content="Home of NZ's Romantic Gestures | Romantic Gestures NZ">
+    <meta name="description" content="Romantic Gestures NZ is here to support couples by enhancing the Romance in their relationship. Romantic Getaways, Marriage Proposals & special occasions.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.romanticgestures.co.nz/">
+    <meta property="og:title" content="Home of NZ's Romantic Gestures | Romantic Gestures NZ">
+    <meta property="og:image" content="images/service2.jpg">
+
+    <link rel="icon" type="image/png" href="images/favicon-rglogo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <style>
+        /* --- GLOBAL & LUXURY TYPOGRAPHY --- */
+        :root {
+            --brand-charcoal: #2b2626; 
+            --brand-burgundy: #6c2b35; 
+            --brand-gold: #c5a880; 
+            --bg-ivory: #fcf9f5; 
+            --text-dark: #3a3333;
+            --text-light: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-ivory);
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 400; 
+            color: var(--brand-charcoal);
+        }
+        
+        a { text-decoration: none; color: inherit; transition: color 0.4s ease; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+        /* --- AGE VERIFICATION POPUP --- */
+        .age-popup-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(43, 38, 38, 0.85); backdrop-filter: blur(10px); 
+            z-index: 9999; display: flex; align-items: center; justify-content: center;
+            opacity: 1; transition: opacity 0.6s ease;
+        }
+        .age-popup-box {
+            background: var(--bg-ivory); padding: 60px 50px; max-width: 550px; width: 90%;
+            text-align: center; border-radius: 2px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border-top: 4px solid var(--brand-burgundy); transform: translateY(0); transition: transform 0.6s ease;
+        }
+        .age-popup-box h2 { font-size: 1.8rem; margin-bottom: 15px; color: var(--brand-charcoal); font-style: italic; line-height: 1.4; }
+        .age-popup-box p { font-size: 0.95rem; color: #555; margin-bottom: 35px; }
+        .age-popup-overlay.hidden { opacity: 0; pointer-events: none; }
+        .age-popup-overlay.hidden .age-popup-box { transform: translateY(20px); }
+
+        /* --- BOUTIQUE BUTTONS --- */
+        .btn-luxury {
+            display: inline-block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px;
+            padding: 16px 45px; border: 1px solid var(--brand-gold); color: var(--brand-charcoal);
+            background: transparent; transition: all 0.5s ease; cursor: pointer; font-weight: 400; border-radius: 1px;
+        }
+        .btn-luxury:hover { background-color: var(--brand-gold); color: var(--text-light); }
+        .btn-luxury.btn-light { color: var(--text-light); border-color: var(--text-light); }
+        .btn-luxury.btn-light:hover { background-color: var(--text-light); color: var(--brand-charcoal); }
+        .btn-luxury.btn-solid { background-color: var(--brand-burgundy); color: var(--text-light); border-color: var(--brand-burgundy); }
+        .btn-luxury.btn-solid:hover { background-color: var(--brand-charcoal); border-color: var(--brand-charcoal); }
+
+        /* --- REDUCED HERO SLIDER --- */
+        .hero-slider {
+            position: relative; width: 100%; 
+            height: 65vh; /* Reduced from 95vh so the text below pulls up above the fold */
+            min-height: 450px;
+            overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease-in-out; z-index: 1;
+        }
+        .slide.active { opacity: 1; z-index: 2; }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(43, 38, 38, 0.3), rgba(43, 38, 38, 0.6)); z-index: 3;
+        }
+        .hero-content {
+            position: relative; z-index: 4; color: var(--text-light);
+            max-width: 800px; padding: 0 20px; animation: fadeIn 2s ease-out;
+        }
+        .hero-content h1 { 
+            font-size: 4rem; /* Reduced slightly to match smaller slider */
+            margin-bottom: 15px; line-height: 1.1; color: var(--text-light); font-style: italic;
+        }
+        .hero-content p { 
+            font-size: 1.15rem; margin-bottom: 35px; font-family: 'Playfair Display', serif; font-weight: 300; letter-spacing: 1px;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- INTRO SECTION --- */
+        .intro-section { padding: 50px 20px 20px; text-align: center; } /* Reduced padding to pull up the text */
+        .intro-section h2 { font-size: 2.8rem; margin-bottom: 15px; color: var(--brand-burgundy); }
+        .intro-section p { max-width: 800px; margin: 0 auto 20px; font-size: 1.15rem; color: var(--text-dark); }
+        .quote-block { margin: 20px auto 40px; font-size: 2rem; color: var(--brand-gold); font-family: 'Playfair Display', serif; font-style: italic; }
+
+        /* --- SERVICES GRID --- */
+        .services-section { padding: 10px 20px 60px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .service-card { position: relative; display: block; overflow: hidden; border-radius: 2px; aspect-ratio: 4 / 3; box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
+        .card-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(43, 38, 38, 0.35); transition: background 0.6s ease; }
+        .card-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); z-index: 2; }
+        .card-text-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .card-title { font-size: 2.2rem; margin: 0; color: var(--text-light); transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.6s ease; font-style: italic; z-index: 3; }
+        .card-subtitle { font-size: 0.9rem; opacity: 0; position: absolute; top: 100%; left: 0; right: 0; margin-top: 15px; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); line-height: 1.7; font-weight: 300; pointer-events: none; }
+        .service-card:hover .card-bg { transform: scale(1.05); }
+        .service-card:hover .card-overlay { background: rgba(108, 43, 53, 0.85); } 
+        .service-card:hover .card-title { transform: translateY(-35px); color: var(--brand-gold); }
+        .service-card:hover .card-subtitle { opacity: 1; transform: translateY(-25px); }
+
+        /* --- FEATURE SPLIT (FLASH MOBS) --- */
+        .feature-split { display: flex; align-items: center; padding: 60px 20px; background-color: #FFFFFF; }
+        .feature-split-inner { display: flex; gap: 60px; max-width: 1200px; margin: 0 auto; align-items: center; flex-wrap: wrap; }
+        .feature-video { flex: 1; min-width: 300px; position: relative; padding-bottom: 31.25%; height: 0; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-radius: 2px;}
+        .feature-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .feature-text { flex: 1; min-width: 300px; }
+        .feature-text h2 { font-size: 3rem; margin-bottom: 20px; font-style: italic; color: var(--brand-burgundy); }
+        .feature-text p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 25px; color: var(--text-dark); }
+
+        /* --- SMALLER BLOG & VIDEOS SECTION --- */
+        .media-section { padding: 60px 20px; }
+        .media-grid { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; 
+            max-width: 950px; /* Constrained to make thumbnails physically smaller */
+            margin: 0 auto; 
+        }
+        .blog-card { background: white; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-top: 3px solid var(--brand-burgundy); border-radius: 2px;}
+        .blog-card h2 { font-size: 2rem; margin-bottom: 15px; color: var(--brand-charcoal); }
+        .blog-date { font-size: 0.75rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; font-weight: 500;}
+        .video-grid { display: flex; flex-direction: column; gap: 20px; justify-content: center; } /* Reduced gap */
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-radius: 2px;}
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* --- COMPACT CONTACT & PARTNERS --- */
+        .contact-partners { padding: 60px 20px; background-color: var(--brand-charcoal); color: white; }
+        .cp-grid { 
+            display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; /* Cut gap in half */
+            max-width: 1000px; /* Constrained max-width to pull form and text closer together */
+            margin: 0 auto; 
+        }
+        .cp-grid h2 { color: var(--brand-gold); margin-bottom: 20px; font-size: 2.5rem; font-style: italic; }
+        .cp-grid p { color: #E0E0E0; margin-bottom: 30px; font-weight: 300; line-height: 1.7;}
+        
+        .partners-logos { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+        .partners-logos img { max-width: 110px; opacity: 0.8; transition: opacity 0.4s; filter: grayscale(20%);}
+        .partners-logos img:hover { opacity: 1; filter: grayscale(0%);}
+
+        /* --- ULTRA-COMPACT CONTACT FORM --- */
+        .contact-form { 
+            background: var(--bg-ivory); 
+            padding: 35px; /* Reduced from 50px */
+            border-radius: 2px;
+            color: var(--text-dark); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px; /* Tighter column gap */
+        }
+        .form-group { margin-bottom: 15px; } /* Tighter row margin */
+        .form-group label { 
+            display: block; font-size: 0.65rem; margin-bottom: 5px; 
+            text-transform: uppercase; letter-spacing: 2px; 
+            color: var(--brand-charcoal); font-weight: 500;
+        }
+        .form-group input[type="text"], .form-group input[type="tel"], .form-group input[type="email"], .form-group select, .form-group textarea {
+            width: 100%; 
+            padding: 8px 0; /* Thinner inputs */
+            border: none;
+            border-bottom: 1px solid rgba(43, 38, 38, 0.2); 
+            background: transparent;
+            font-family: 'Montserrat', sans-serif; 
+            transition: all 0.4s; font-size: 0.85rem;
+            color: var(--brand-charcoal);
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; 
+            border-bottom: 1px solid var(--brand-burgundy); 
+        }
+        .checkbox-group { display: flex; align-items: center; gap: 10px; margin-top: 10px; margin-bottom: 20px; }
+        .checkbox-group label { margin-bottom: 0; text-transform: none; letter-spacing: 0.5px; font-weight: 400; font-size: 0.8rem; color: #555;}
+        
+        .btn-submit {
+            background-color: var(--brand-burgundy); color: var(--text-light); border: none;
+            padding: 15px 30px; font-family: 'Montserrat', sans-serif; text-transform: uppercase;
+            letter-spacing: 3px; font-weight: 500; cursor: pointer; transition: background 0.4s; width: 100%;
+        }
+        .btn-submit:hover { background-color: var(--brand-charcoal); }
+
+        @media (max-width: 768px) {
+            .hero-slider { height: 50vh; min-height: 350px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .cp-grid, .media-grid, .form-row { grid-template-columns: 1fr; max-width: 100%; }
+            .feature-video { padding-bottom: 56.25%; }
+            .blog-card { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ageVerification" class="age-popup-overlay hidden">
+        <div class="age-popup-box">
+            <h2>You need to be 18 years of age or over to enter this site.</h2>
+            <p>By clicking here you are declaring that you are 18 years of age or over.</p>
+            <button id="btn-over-18" class="btn-luxury btn-solid">Yes, I'm over 18 years.</button>
+        </div>
+    </div>
+
+    <site-header></site-header>
+
+    <header id="home" class="hero-slider">
+        <div class="slide active" style="background-image: url('images/homehero.jpg');"></div>
+        <div class="slide" style="background-image: url('images/homehero2.jpg');"></div>
+        <div class="slide" style="background-image: url('images/homehero3.jpg');"></div>
+
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Romance your relationship</h1>
+            <p>"The difference between something good and something great, is attention to detail." <br>— Charles R. Swindoll</p>
+            <a href="#services" class="btn-luxury btn-light">VIEW OUR SERVICES</a>
+        </div>
+    </header>
+
+    <section id="about" class="intro-section">
+        <div class="container">
+            <h2>Unforgettable Moments</h2>
+            <p>We are proudly NZ owned and operated since 2014, providing clients with magical and memorable Romantic experiences that will last in their hearts forever.</p>
+            
+            <div class="quote-block">
+                " Best Marriage Proposal Planner in NZ "
+            </div>
+            <a href="/shop/" class="btn-luxury">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="services-grid">
+                
+                <a href="/date-nights/" class="service-card">
+                    <div class="card-bg" style="background-image: url('images/service1.jpg');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-text-wrapper">
+                            <h3 class="card-title">Date Night</h3>
+                            <p class="card-subtitle">We take the hassle out of planning your next Date Night to ensure maximum WOW factor and plenty of brownie points.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/marriage-proposals/" class="service-card">
+                    <div class="card-bg" style="background-image: url('images/service2.jpg');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-text-wrapper">
+                            <h3 class="card-title">Marriage Proposals</h3>
+                            <p class="card-subtitle">Let us create your Romantic unforgettable surprise Marriage Proposal of your dreams in almost any location across New Zealand.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="http://www.RomanticGetawaysNZ.com" target="_blank" class="service-card">
+                    <div class="card-bg" style="background-image: url('images/service3.jpg');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-text-wrapper">
+                            <h3 class="card-title">Romantic Getaways</h3>
+                            <p class="card-subtitle">Choose from one of our many Romantic Getaways across New Zealand to celebrate your next special occasion.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-split">
+        <div class="feature-split-inner">
+            <div class="feature-video">
+                <iframe src="https://www.youtube.com/embed/8GLEnbnt1OM?modestbranding=1&rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="feature-text">
+                <h2>Flash Mobs</h2>
+                <p>Samantha and Chris wanted to add a unique and meaningful piece to their Wedding Day and the theme of this song has special meaning to them both. They were so fun to work with and loved being part of the team on the day. Their guests had no idea this was happening and everyone did a fabulous job. The guests loved it.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="media-section">
+        <div class="media-grid">
+            <div class="blog-card">
+                <h2>From the Blog</h2>
+                <h3><a href="/blog/post/159520/is-your-valentines-bouquet-toxic/">Is your Valentine’s bouquet toxic?</a></h3>
+                <span class="blog-date">January 30, 2026</span>
+                <p style="margin-bottom: 25px; font-weight: 300; color: #555; font-size: 0.95rem;">Big bouquets of red roses and delicious boxes of chocolates are lovely to receive on Valentines Day (if that’s what you like) but are they sustainable? Did you know that in 2023, New Zealand imported $2.34M of cut flowers, mainly from India, Columbia and Bolivia.These imported flowers (think...</p>
+                <a href="/blog/post/159520/is-your-valentines-bouquet-toxic/" class="btn-luxury">Read More</a>
+            </div>
+            <div class="video-grid">
+                <div class="video-wrapper">
+                    <iframe loading="lazy" src="//www.youtube.com/embed/7uBCCwjRLLU?modestbranding=1&rel=0&showinfo=0&wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe loading="lazy" src="//www.youtube.com/embed/EDvGLmOaubA?modestbranding=1&rel=0&showinfo=0&wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-partners">
+        <div class="cp-grid">
+            
+            <div class="partners-info">
+                <h2>Our partners</h2>
+                <p>We only work with the best companies around NZ. The products & services below all have affiliate links where we receive a small commission for each sale. They have all been approved by our team and would not be recommended to you if we didn’t think they are of value to add Romance to your relationship. Enjoy.</p>
+                
+                <div class="partners-logos">
+                    <a href="https://track.roeye.co.nz/click?pid=2199&amp;offer_id=10" target="_blank">
+                        <img src="images/linden.jpg" alt="Linden Leaves">
+                    </a>
+                    <a href="https://adventurehelicopters.co.nz/?ap_id=RomanticGestures" target="_blank">
+                        <img src="images/helicopter.jpg" alt="Adventure Helicopters">
+                    </a>
+                    <a href="https://www.newzealand.com/int/" target="_blank">
+                        <img src="images/newzealand-tourism.png" alt="100% Pure New Zealand" style="background:var(--brand-charcoal); padding: 5px;">
+                    </a>
+                    <a href="https://coupleschoice.nz/winners-2025/" target="_blank">
+                        <img src="images/couple-choice.png" alt="Couples Choice Winner">
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="margin-bottom: 20px; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--brand-charcoal); font-style: italic;">Enquire Now</h3>
+                
+                <form id="contactForm" name="contactForm">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="Phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enquiry_type">Enquiry Type</label>
+                            <select id="enquiry_type" name="EnquiryType" required>
+                                <option value="" disabled selected>Select</option>
+                                <option value="Surprise Marriage Proposal">Surprise Marriage Proposal</option>
+                                <option value="Date Night">Date Night</option>
+                                <option value="Product Enquiry">Product Enquiry</option>
+                                <option value="Getaway Enquiry">Getaway</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="Message" rows="1" required></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="over_18" name="Over18" value="Yes" required>
+                        <label for="over_18">I am over 18</label>
+                    </div>
+                    <button type="submit" id="submitBtn" class="btn-submit">Send</button>
+                    
+                    <p id="formStatus" style="margin-top: 15px; font-size: 0.85rem; font-weight: 500; text-align: center;"></p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <site-footer>
+        <img slot="shielded-logo" alt="shielded" id="shielded-logo" src="https://shielded.co.nz/img/custom-logo.png" height="50" width="50" style="cursor: pointer; display: block;">
+    </site-footer>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '920900474104016');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=920900474104016&ev=PageView&noscript=1"
+    /></noscript>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Slider Logic
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            const slideInterval = 5000; 
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            setInterval(nextSlide, slideInterval);
+
+            // Age Gate Logic
+            const agePopup = document.getElementById('ageVerification');
+            const btnOver18 = document.getElementById('btn-over-18');
+
+            if (!sessionStorage.getItem('ageVerified')) {
+                agePopup.classList.remove('hidden');
+            } else {
+                agePopup.style.display = 'none';
+            }
+
+            btnOver18.addEventListener('click', () => {
+                sessionStorage.setItem('ageVerified', 'true');
+                agePopup.classList.add('hidden');
+                setTimeout(() => { agePopup.style.display = 'none'; }, 600); 
+            });
+
+            // CRM Logic
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyBNHQLYkRTPkjvwcX1BJyjFdBOULFE8BJwWQZ9hjJqJx8qd3rfZv91LI5qcCK5OFkqgQ/exec';
+            const form = document.forms['contactForm'];
+            const submitBtn = document.getElementById('submitBtn');
+            const formStatus = document.getElementById('formStatus');
+
+            form.addEventListener('submit', e => {
+                e.preventDefault(); 
+                
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                formStatus.textContent = '';
+
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        submitBtn.textContent = 'Send';
+                        submitBtn.disabled = false;
+                        formStatus.textContent = "Thank you! Your enquiry has been sent successfully.";
+                        formStatus.style.color = "var(--brand-burgundy)";
+                        
+                        if (typeof fbq === 'function') {
+                            fbq('track', 'Lead');
+                        }
+                        
+                        form.reset(); 
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        submitBtn.textContent = 'Send';
+                        submitBtn.disabled = false;
+                        formStatus.textContent = "Oops! Something went wrong. Please try again.";
+                        formStatus.style.color = "var(--brand-charcoal)";
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -16,17 +16,19 @@ class SiteFooter extends HTMLElement {
                 gap: 40px;
                 max-width: 1200px;
                 margin: 0 auto;
+                align-items: start; /* Ensures all columns align perfectly at the top */
             }
             @media (max-width: 992px) {
                 .footer-container { grid-template-columns: 1fr; }
             }
 
             .footer-col h3 {
-                font-family: 'Winsome', serif;
+                font-family: 'Cormorant Garamond', serif; 
                 font-size: 2.2rem;
                 color: var(--brand-gold);
                 margin-bottom: 20px;
-                font-weight: 400;
+                font-weight: 500;
+                font-style: italic;
             }
             .footer-col p {
                 font-size: 0.9rem;
@@ -36,10 +38,31 @@ class SiteFooter extends HTMLElement {
             }
             
             /* Column 1: Partners & Socials */
-            .partners-logos { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; align-items: center; }
-            .partners-logos img { max-width: 90px; opacity: 0.8; transition: opacity 0.4s; filter: grayscale(20%); }
-            .partners-logos img:hover { opacity: 1; filter: grayscale(0%); }
-            .shielded-container { margin-bottom: 30px; }
+            .partners-logos { 
+                display: flex; 
+                flex-wrap: wrap; 
+                gap: 15px; 
+                margin-bottom: 30px; 
+                align-items: center; 
+            }
+            .partners-logos img, .partners-logos .shielded-container img { 
+                max-width: 90px; 
+                opacity: 0.8; 
+                transition: opacity 0.4s; 
+                filter: grayscale(20%); 
+            }
+            .partners-logos img:hover, .partners-logos .shielded-container img:hover { 
+                opacity: 1; 
+                filter: grayscale(0%); 
+            }
+            
+            /* Ensures Shielded Logo fits perfectly beside the others */
+            .shielded-container { 
+                display: inline-block; 
+                margin: 0; 
+                padding: 0;
+            }
+            
             .social-icons { display: flex; gap: 15px; margin-bottom: 15px; }
             .social-icons a svg { fill: var(--text-light); width: 22px; height: 22px; transition: fill 0.4s ease, transform 0.4s ease; }
             .social-icons a:hover svg { fill: var(--hover-red); transform: translateY(-3px); }
@@ -95,14 +118,15 @@ class SiteFooter extends HTMLElement {
                 <div class="footer-col">
                     <h3>Our partners</h3>
                     <p>We only work with the best companies around NZ. They have all been approved by our team and are of value to add Romance to your relationship.</p>
+                    
                     <div class="partners-logos">
                         <a href="https://track.roeye.co.nz/click?pid=2199&amp;offer_id=10" target="_blank"><img src="images/linden.jpg" alt="Linden Leaves"></a>
                         <a href="https://adventurehelicopters.co.nz/?ap_id=RomanticGestures" target="_blank"><img src="images/helicopter.jpg" alt="Adventure Helicopters"></a>
                         <a href="https://www.newzealand.com/int/" target="_blank"><img src="images/newzealand-tourism.png" alt="100% Pure New Zealand" style="background:var(--brand-charcoal); padding: 2px;"></a>
                         <a href="https://coupleschoice.nz/winners-2025/" target="_blank"><img src="images/couple-choice.png" alt="Couples Choice Winner"></a>
-                    </div>
-                    <div class="shielded-container">
-                        <img alt="shielded" id="shielded-logo" src="https://shielded.co.nz/img/custom-logo.png" height="50" width="50" style="cursor: pointer; display: block;">
+                        <div class="shielded-container">
+                            <img alt="shielded" id="shielded-logo" src="https://shielded.co.nz/img/custom-logo.png" height="50" width="50" style="cursor: pointer; display: block; max-width: 50px;">
+                        </div>
                     </div>
                     
                     <h3 style="margin-top: 30px;">Connect With Us</h3>

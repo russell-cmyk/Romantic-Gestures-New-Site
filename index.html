@@ -17,26 +17,18 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <script src="header.js"></script>
     <script src="footer.js"></script>
 
     <style>
-        /* --- CUSTOM FONT INJECTION --- */
-        @font-face {
-            font-family: 'Winsome';
-            src: local('Winsome Regular'), local('Winsome');
-            /* Ensures browser falls back to a graceful serif if font file isn't loaded locally */
-            font-display: swap; 
-        }
-
         /* --- GLOBAL COLOR & TYPOGRAPHY VARIABLES --- */
         :root {
-            --brand-charcoal: #111A3E; /* Restored to elegant Navy Slate Blue */
+            --brand-charcoal: #111A3E; 
             --brand-burgundy: #6c2b35; 
             --brand-gold: #c5a880; 
-            --hover-red: #c02026; /* New requested button hover color */
+            --hover-red: #c02026; 
             --bg-ivory: #fcf9f5; 
             --text-dark: #3a3333;
             --text-light: #ffffff;
@@ -52,11 +44,12 @@
             font-weight: 400;
         }
 
-        /* Enforce Winsome font on all headings */
+        /* --- RELIABLE WEB FONT INJECTION --- */
         h1, h2, h3, h4, .quote-block, .card-title { 
-            font-family: 'Winsome', serif !important; 
-            font-weight: normal; 
+            font-family: 'Cormorant Garamond', serif !important; 
+            font-weight: 500; 
             color: var(--brand-charcoal);
+            line-height: 1.2; 
         }
         
         a { text-decoration: none; color: inherit; transition: color 0.4s ease; }
@@ -75,19 +68,18 @@
             text-align: center; border-radius: 8px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);
             border-top: 4px solid var(--brand-gold); transform: translateY(0); transition: transform 0.6s ease;
         }
-        .age-popup-box h2 { font-size: 2.2rem; margin-bottom: 15px; color: var(--brand-charcoal); line-height: 1.2; }
+        .age-popup-box h2 { font-size: 2.2rem; margin-bottom: 15px; color: var(--brand-charcoal); line-height: 1.2; font-style: italic; }
         .age-popup-box p { font-size: 0.95rem; color: #555; margin-bottom: 35px; }
         .age-popup-overlay.hidden { opacity: 0; pointer-events: none; }
         .age-popup-overlay.hidden .age-popup-box { transform: translateY(20px); }
 
-        /* --- BOUTIQUE BUTTONS (Font forced to Raleway) --- */
+        /* --- BOUTIQUE BUTTONS --- */
         .btn-luxury {
             display: inline-block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px;
             padding: 16px 45px; border: 1px solid var(--brand-charcoal); color: var(--brand-charcoal);
             background: transparent; transition: all 0.4s ease; cursor: pointer; font-weight: 500; 
             border-radius: 4px; font-family: 'Raleway', sans-serif !important;
         }
-        /* Global button hover state applied to requested #c02026 */
         .btn-luxury:hover { background-color: var(--hover-red) !important; border-color: var(--hover-red) !important; color: var(--text-light) !important; }
         .btn-luxury.btn-solid { background-color: var(--brand-charcoal); color: var(--text-light); border-color: var(--brand-charcoal); }
 
@@ -109,38 +101,44 @@
             position: relative; z-index: 4; color: var(--text-light);
             max-width: 900px; padding: 0 20px; animation: fadeIn 2s ease-out;
         }
+        
+        /* --- FIXED H1 TO MATCH H2 STYLING --- */
         .hero-content h1 { 
-            font-size: 4.5rem; margin-bottom: 15px; line-height: 1.1; color: var(--text-light);
+            font-size: 3.5rem; /* Matched to intro-section h2 */
+            margin-bottom: 15px; 
+            line-height: 1.2; 
+            color: var(--text-light); 
+            font-style: italic; /* Matched to intro-section h2 */
         }
         .hero-content p { 
-            font-size: 1.2rem; font-weight: 400; letter-spacing: 1px;
+            font-size: 1.2rem; font-weight: 400; letter-spacing: 1px; font-family: 'Raleway', sans-serif;
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* --- INTRO SECTION --- */
         .intro-section { padding: 40px 20px 20px; text-align: center; } 
-        .intro-section h2 { font-size: 3.5rem; margin-bottom: 15px; color: var(--brand-charcoal); }
+        .intro-section h2 { font-size: 3.5rem; margin-bottom: 15px; color: var(--brand-charcoal); font-style: italic; }
         .intro-section p { max-width: 800px; margin: 0 auto 25px; font-size: 1.1rem; color: var(--text-dark); }
-        .quote-block { margin: 20px auto 40px; font-size: 2.8rem; color: var(--brand-gold); }
+        .quote-block { margin: 20px auto 40px; font-size: 2.8rem; color: var(--brand-gold); font-style: italic; }
 
         /* --- ROUNDED SERVICES GRID --- */
         .services-section { padding: 20px 20px 40px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .service-card { 
             position: relative; display: block; overflow: hidden; 
-            border-radius: 20px; /* Highly rounded as requested */
+            border-radius: 20px; 
             aspect-ratio: 4 / 3; box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
         }
         .card-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(17, 26, 62, 0.35); transition: background 0.6s ease; }
         .card-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); z-index: 2; }
         .card-text-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .card-title { font-size: 2.8rem; margin: 0; color: var(--text-light); transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.6s ease; z-index: 3; }
+        .card-title { font-size: 2.8rem; margin: 0; color: var(--text-light); transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.6s ease; z-index: 3; font-style: italic;}
         .card-subtitle { font-family: 'Raleway', sans-serif !important; font-size: 0.9rem; opacity: 0; position: absolute; top: 100%; left: 0; right: 0; margin-top: 15px; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); line-height: 1.7; font-weight: 400; pointer-events: none; }
         
         .service-card:hover .card-bg { transform: scale(1.05); }
-        .service-card:hover .card-overlay { background: rgba(17, 26, 62, 0.85); } /* Requested transparent #111a3e */
+        .service-card:hover .card-overlay { background: rgba(17, 26, 62, 0.85); } 
         .service-card:hover .card-title { transform: translateY(-35px); color: var(--brand-gold); }
         .service-card:hover .card-subtitle { opacity: 1; transform: translateY(-25px); }
 
@@ -150,12 +148,12 @@
         .feature-video { flex: 1; min-width: 300px; position: relative; padding-bottom: 31.25%; height: 0; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 15px;}
         .feature-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .feature-text { flex: 1; min-width: 300px; }
-        .feature-text h2 { font-size: 3.5rem; margin-bottom: 20px; color: var(--brand-charcoal); }
-        .feature-text p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 25px; color: var(--text-dark); font-style: italic; }
+        .feature-text h2 { font-size: 3.5rem; margin-bottom: 20px; color: var(--brand-charcoal); font-style: italic; }
+        .feature-text p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 25px; color: var(--text-dark); font-style: italic; font-family: 'Raleway', sans-serif; }
 
         @media (max-width: 768px) {
             .hero-slider { height: 50vh; min-height: 350px; }
-            .hero-content h1 { font-size: 3.5rem; }
+            .hero-content h1 { font-size: 2.8rem; } /* Scaled down proportionally for mobile */
             .feature-video { padding-bottom: 56.25%; }
         }
     </style>
@@ -181,7 +179,7 @@
         <div class="hero-content">
             <h1>Romantic Gestures NZ</h1>
             <p>We are proudly NZ owned and operated since 2014, providing clients with magical and memorable Romantic experiences that will last in your hearts forever.</p>
-            </div>
+        </div>
     </header>
 
     <section id="about" class="intro-section">
@@ -189,12 +187,11 @@
             <h2>Romance your relationship</h2>
             <p>The difference between something good and something great, is attention to detail. <br>— Charles R. Swindoll</p>
             
-            <a href="#services" class="btn-luxury btn-solid" style="margin-bottom: 25px;">VIEW OUR SERVICES</a>
-
             <div class="quote-block">
                 " Best Marriage Proposal Planner in NZ "
             </div>
-            <a href="/shop/" class="btn-luxury">Shop Now</a>
+            
+            <a href="#services" class="btn-luxury btn-solid">VIEW OUR SERVICES</a>
         </div>
     </section>
 
@@ -298,7 +295,7 @@
                 setTimeout(() => { agePopup.style.display = 'none'; }, 600); 
             });
 
-            // CRM Logic (Attaches to the form rendered by footer.js)
+            // CRM Logic
             setTimeout(() => {
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbyBNHQLYkRTPkjvwcX1BJyjFdBOULFE8BJwWQZ9hjJqJx8qd3rfZv91LI5qcCK5OFkqgQ/exec';
                 const form = document.forms['contactForm'];
@@ -335,7 +332,7 @@
                             });
                     });
                 }
-            }, 500); // Wait 500ms for footer component to fully render
+            }, 500); 
         });
     </script>
 </body>
