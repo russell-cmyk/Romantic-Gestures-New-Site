@@ -4,6 +4,7 @@ class SiteHeader extends HTMLElement {
         this.innerHTML = `
         <style>
             .main-header {
+                /* Lightened to a softer, richer Navy Blue */
                 background-color: var(--brand-charcoal);
                 color: var(--text-light);
                 padding: 15px 0; 

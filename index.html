@@ -25,7 +25,7 @@
     <style>
         /* --- GLOBAL COLOR & TYPOGRAPHY VARIABLES --- */
         :root {
-            --brand-charcoal: #111A3E; 
+            --brand-charcoal: #2C4270; 
             --brand-burgundy: #6c2b35; 
             --brand-gold: #c5a880; 
             --hover-red: #c02026; 
@@ -44,7 +44,6 @@
             font-weight: 400;
         }
 
-        /* --- RELIABLE WEB FONT INJECTION --- */
         h1, h2, h3, h4, .quote-block, .card-title { 
             font-family: 'Cormorant Garamond', serif !important; 
             font-weight: 500; 
@@ -59,7 +58,7 @@
         /* --- AGE VERIFICATION POPUP --- */
         .age-popup-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(17, 26, 62, 0.85); backdrop-filter: blur(10px); 
+            background: rgba(44, 66, 112, 0.85); backdrop-filter: blur(10px); 
             z-index: 9999; display: flex; align-items: center; justify-content: center;
             opacity: 1; transition: opacity 0.6s ease;
         }
@@ -95,20 +94,17 @@
         .slide.active { opacity: 1; z-index: 2; }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(17, 26, 62, 0.4), rgba(17, 26, 62, 0.6)); z-index: 3;
+            background: linear-gradient(to bottom, rgba(44, 66, 112, 0.3), rgba(44, 66, 112, 0.6)); z-index: 3;
         }
         .hero-content {
             position: relative; z-index: 4; color: var(--text-light);
             max-width: 900px; padding: 0 20px; animation: fadeIn 2s ease-out;
+            margin-top: 20vh; /* Lowered the text position */
         }
         
-        /* --- FIXED H1 TO MATCH H2 STYLING --- */
         .hero-content h1 { 
-            font-size: 3.5rem; /* Matched to intro-section h2 */
-            margin-bottom: 15px; 
-            line-height: 1.2; 
-            color: var(--text-light); 
-            font-style: italic; /* Matched to intro-section h2 */
+            font-size: 5rem; margin-bottom: 15px; line-height: 1.1; 
+            color: var(--text-light); font-style: italic; 
         }
         .hero-content p { 
             font-size: 1.2rem; font-weight: 400; letter-spacing: 1px; font-family: 'Raleway', sans-serif;
@@ -116,45 +112,53 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- INTRO SECTION --- */
-        .intro-section { padding: 40px 20px 20px; text-align: center; } 
-        .intro-section h2 { font-size: 3.5rem; margin-bottom: 15px; color: var(--brand-charcoal); font-style: italic; }
-        .intro-section p { max-width: 800px; margin: 0 auto 25px; font-size: 1.1rem; color: var(--text-dark); }
-        .quote-block { margin: 20px auto 40px; font-size: 2.8rem; color: var(--brand-gold); font-style: italic; }
+        /* --- TIGHTENED INTRO SECTION --- */
+        .intro-section { padding: 30px 20px 10px; text-align: center; } 
+        .intro-section h2 { font-size: 3.5rem; margin-bottom: 10px; color: var(--brand-charcoal); font-style: italic; }
+        .intro-section p { max-width: 800px; margin: 0 auto 20px; font-size: 1.1rem; color: var(--text-dark); }
+        .quote-block { margin: 15px auto 25px; font-size: 3.0rem; color: var(--brand-gold); font-style: italic; }
 
         /* --- ROUNDED SERVICES GRID --- */
-        .services-section { padding: 20px 20px 40px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .services-section { padding: 10px 20px 30px; } 
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; } 
         .service-card { 
             position: relative; display: block; overflow: hidden; 
             border-radius: 20px; 
             aspect-ratio: 4 / 3; box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
         }
         .card-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(17, 26, 62, 0.35); transition: background 0.6s ease; }
-        .card-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); z-index: 2; }
-        .card-text-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .card-title { font-size: 2.8rem; margin: 0; color: var(--text-light); transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.6s ease; z-index: 3; font-style: italic;}
-        .card-subtitle { font-family: 'Raleway', sans-serif !important; font-size: 0.9rem; opacity: 0; position: absolute; top: 100%; left: 0; right: 0; margin-top: 15px; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); line-height: 1.7; font-weight: 400; pointer-events: none; }
+        .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 66, 112, 0.35); transition: background 0.6s ease; }
+        .card-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); z-index: 2; }
+        
+        .card-text-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; transform: translateY(35px); transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .card-title { font-size: 2.8rem; margin: 0; color: var(--text-light); transition: color 0.6s ease; z-index: 3; font-style: italic; line-height: 1.1;}
+        .card-subtitle { font-family: 'Raleway', sans-serif !important; font-size: 0.95rem; opacity: 0; max-height: 0; margin-top: 0; overflow: hidden; transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); line-height: 1.7; font-weight: 400; position: static;}
         
         .service-card:hover .card-bg { transform: scale(1.05); }
-        .service-card:hover .card-overlay { background: rgba(17, 26, 62, 0.85); } 
-        .service-card:hover .card-title { transform: translateY(-35px); color: var(--brand-gold); }
-        .service-card:hover .card-subtitle { opacity: 1; transform: translateY(-25px); }
+        .service-card:hover .card-overlay { background: rgba(44, 66, 112, 0.85); } 
+        .service-card:hover .card-text-wrapper { transform: translateY(0); }
+        .service-card:hover .card-title { color: var(--brand-gold); }
+        .service-card:hover .card-subtitle { opacity: 1; max-height: 200px; margin-top: 15px; }
 
-        /* --- FEATURE SPLIT (OUR PROPOSALS) --- */
-        .feature-split { display: flex; align-items: center; padding: 40px 20px; background-color: transparent; }
-        .feature-split-inner { display: flex; gap: 60px; max-width: 1200px; margin: 0 auto; align-items: center; flex-wrap: wrap; }
-        .feature-video { flex: 1; min-width: 300px; position: relative; padding-bottom: 31.25%; height: 0; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 15px;}
+        /* --- TIGHTENED FEATURE SPLIT --- */
+        .feature-split { padding: 30px 20px 40px; background-color: transparent; } 
+        .feature-split-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; align-items: start; }
+        
+        .feature-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 12px;}
         .feature-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .feature-text { flex: 1; min-width: 300px; }
-        .feature-text h2 { font-size: 3.5rem; margin-bottom: 20px; color: var(--brand-charcoal); font-style: italic; }
-        .feature-text p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 25px; color: var(--text-dark); font-style: italic; font-family: 'Raleway', sans-serif; }
+        
+        .feature-text { text-align: center; margin-bottom: 30px; } 
+        .feature-text h2 { font-size: 3.5rem; margin-bottom: 15px; color: var(--brand-charcoal); font-style: italic; }
+        .feature-text p { font-size: 1.1rem; line-height: 1.9; color: var(--text-dark); font-style: italic; font-family: 'Raleway', sans-serif; max-width: 850px; margin: 0 auto; }
+
+        /* Removed the border-top from the blog card */
+        .blog-card { background: white; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-radius: 8px;}
+        .blog-date { font-size: 0.75rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; font-weight: 600;}
 
         @media (max-width: 768px) {
             .hero-slider { height: 50vh; min-height: 350px; }
-            .hero-content h1 { font-size: 2.8rem; } /* Scaled down proportionally for mobile */
-            .feature-video { padding-bottom: 56.25%; }
+            .hero-content h1 { font-size: 3.5rem; } 
+            .feature-split-inner { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -187,11 +191,11 @@
             <h2>Romance your relationship</h2>
             <p>The difference between something good and something great, is attention to detail. <br>— Charles R. Swindoll</p>
             
+            <a href="#services" class="btn-luxury btn-solid">VIEW OUR SERVICES</a>
+
             <div class="quote-block">
                 " Best Marriage Proposal Planner in NZ "
             </div>
-            
-            <a href="#services" class="btn-luxury btn-solid">VIEW OUR SERVICES</a>
         </div>
     </section>
 
@@ -237,13 +241,24 @@
     </section>
 
     <section class="feature-split">
-        <div class="feature-split-inner">
-            <div class="feature-video">
-                <iframe src="https://www.youtube.com/embed/7uBCCwjRLLU?modestbranding=1&rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+        <div class="container">
             <div class="feature-text">
                 <h2>Our Proposals</h2>
                 <p>"Natasha and her team at Romantic Gestures created the absolute perfect marriage proposal for us. She took our vision and transformed it into a breathtaking reality. The attention to detail, the stunning location, and the seamless execution made it a truly magical moment we will cherish forever."</p>
+            </div>
+            
+            <div class="feature-split-inner">
+                <div class="feature-video">
+                    <iframe src="https://www.youtube.com/embed/7uBCCwjRLLU?modestbranding=1&rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="blog-card">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 10px; color: var(--brand-charcoal); font-style: italic;">From the Blog</h2>
+                    <h3><a href="/blog/post/159520/is-your-valentines-bouquet-toxic/">Is your Valentine’s bouquet toxic?</a></h3>
+                    <span class="blog-date">January 30, 2026</span>
+                    <p style="margin-bottom: 20px; font-weight: 400; color: #555; font-size: 0.95rem; line-height: 1.8;">Big bouquets of red roses and delicious boxes of chocolates are lovely to receive on Valentines Day (if that’s what you like) but are they sustainable? Did you know that in 2023, New Zealand imported $2.34M of cut flowers, mainly from India, Columbia and Bolivia. These imported flowers (think...</p>
+                    <a href="/blog/post/159520/is-your-valentines-bouquet-toxic/" class="btn-luxury">Read More</a>
+                </div>
             </div>
         </div>
     </section>
