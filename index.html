@@ -99,7 +99,7 @@
         .hero-content {
             position: relative; z-index: 4; color: var(--text-light);
             max-width: 900px; padding: 0 20px; animation: fadeIn 2s ease-out;
-            margin-top: 20vh; /* Lowered the text position */
+            margin-top: 20vh; 
         }
         
         .hero-content h1 { 
@@ -116,7 +116,9 @@
         .intro-section { padding: 30px 20px 10px; text-align: center; } 
         .intro-section h2 { font-size: 3.5rem; margin-bottom: 10px; color: var(--brand-charcoal); font-style: italic; }
         .intro-section p { max-width: 800px; margin: 0 auto 20px; font-size: 1.1rem; color: var(--text-dark); }
-        .quote-block { margin: 15px auto 25px; font-size: 3.0rem; color: var(--brand-gold); font-style: italic; }
+        
+        /* Adjusted the quote to 2.6rem so it is slightly but distinctly smaller than the H2 */
+        .quote-block { margin: 15px auto 25px; font-size: 2.6rem; color: var(--brand-gold); font-style: italic; }
 
         /* --- ROUNDED SERVICES GRID --- */
         .services-section { padding: 10px 20px 30px; } 
@@ -128,37 +130,33 @@
         }
         .card-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 66, 112, 0.35); transition: background 0.6s ease; }
-        .card-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); z-index: 2; }
         
-        .card-text-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; transform: translateY(35px); transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        /* Removed all manual translations so the text stays perfectly centered natively */
+        .card-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); z-index: 2; }
+        .card-text-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; }
         .card-title { font-size: 2.8rem; margin: 0; color: var(--text-light); transition: color 0.6s ease; z-index: 3; font-style: italic; line-height: 1.1;}
         .card-subtitle { font-family: 'Raleway', sans-serif !important; font-size: 0.95rem; opacity: 0; max-height: 0; margin-top: 0; overflow: hidden; transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); line-height: 1.7; font-weight: 400; position: static;}
         
         .service-card:hover .card-bg { transform: scale(1.05); }
         .service-card:hover .card-overlay { background: rgba(44, 66, 112, 0.85); } 
-        .service-card:hover .card-text-wrapper { transform: translateY(0); }
         .service-card:hover .card-title { color: var(--brand-gold); }
-        .service-card:hover .card-subtitle { opacity: 1; max-height: 200px; margin-top: 15px; }
+        /* Increased max-height heavily to ensure no description text ever gets cut off */
+        .service-card:hover .card-subtitle { opacity: 1; max-height: 300px; margin-top: 15px; }
 
         /* --- TIGHTENED FEATURE SPLIT --- */
         .feature-split { padding: 30px 20px 40px; background-color: transparent; } 
-        .feature-split-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; align-items: start; }
+        .feature-split-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; align-items: start; margin-bottom: 40px; }
         
         .feature-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 12px;}
         .feature-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        
-        .feature-text { text-align: center; margin-bottom: 30px; } 
-        .feature-text h2 { font-size: 3.5rem; margin-bottom: 15px; color: var(--brand-charcoal); font-style: italic; }
-        .feature-text p { font-size: 1.1rem; line-height: 1.9; color: var(--text-dark); font-style: italic; font-family: 'Raleway', sans-serif; max-width: 850px; margin: 0 auto; }
 
-        /* Removed the border-top from the blog card */
-        .blog-card { background: white; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-radius: 8px;}
+        .blog-card { background: white; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-radius: 8px;}
         .blog-date { font-size: 0.75rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; font-weight: 600;}
 
         @media (max-width: 768px) {
             .hero-slider { height: 50vh; min-height: 350px; }
             .hero-content h1 { font-size: 3.5rem; } 
-            .feature-split-inner { grid-template-columns: 1fr; }
+            .feature-split-inner { grid-template-columns: 1fr; margin-bottom: 20px; }
         }
     </style>
 </head>
@@ -242,12 +240,26 @@
 
     <section class="feature-split">
         <div class="container">
-            <div class="feature-text">
-                <h2>Our Proposals</h2>
-                <p>"Natasha and her team at Romantic Gestures created the absolute perfect marriage proposal for us. She took our vision and transformed it into a breathtaking reality. The attention to detail, the stunning location, and the seamless execution made it a truly magical moment we will cherish forever."</p>
-            </div>
             
             <div class="feature-split-inner">
+                
+                <div class="blog-card" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                    <h2 style="font-size: 3.5rem; margin-bottom: 15px; color: var(--brand-charcoal); font-style: italic;">Our Proposals</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.9; color: var(--text-dark); font-style: italic; font-family: 'Raleway', sans-serif;">"Natasha and her team at Romantic Gestures created the absolute perfect marriage proposal for us. She took our vision and transformed it into a breathtaking reality. The attention to detail, the stunning location, and the seamless execution made it a truly magical moment we will cherish forever."</p>
+                </div>
+                
+                <div class="blog-card">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 10px; color: var(--brand-charcoal); font-style: italic;">From the Blog</h2>
+                    <h3><a href="/blog/post/how-to-plan-perfect-date/">How to plan the perfect Date Night</a></h3>
+                    <span class="blog-date">February 14, 2026</span>
+                    <p style="margin-bottom: 20px; font-weight: 400; color: #555; font-size: 0.95rem; line-height: 1.8;">Coming up with fresh, romantic ideas for date night can be a challenge. Whether you have been together for 6 months or 60 years, keeping the spark alive requires intention. Here are our top secrets to executing a date night that will leave your partner speechless...</p>
+                    <a href="/blog/post/how-to-plan-perfect-date/" class="btn-luxury">Read More</a>
+                </div>
+
+            </div>
+
+            <div class="feature-split-inner" style="margin-bottom: 0;">
+                
                 <div class="feature-video">
                     <iframe src="https://www.youtube.com/embed/7uBCCwjRLLU?modestbranding=1&rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
@@ -259,7 +271,9 @@
                     <p style="margin-bottom: 20px; font-weight: 400; color: #555; font-size: 0.95rem; line-height: 1.8;">Big bouquets of red roses and delicious boxes of chocolates are lovely to receive on Valentines Day (if that’s what you like) but are they sustainable? Did you know that in 2023, New Zealand imported $2.34M of cut flowers, mainly from India, Columbia and Bolivia. These imported flowers (think...</p>
                     <a href="/blog/post/159520/is-your-valentines-bouquet-toxic/" class="btn-luxury">Read More</a>
                 </div>
+
             </div>
+
         </div>
     </section>
 
@@ -283,7 +297,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Slider Logic
             const slides = document.querySelectorAll('.slide');
             let currentSlide = 0;
             const slideInterval = 5000; 
@@ -294,7 +307,6 @@
             }
             setInterval(nextSlide, slideInterval);
 
-            // Age Gate Logic
             const agePopup = document.getElementById('ageVerification');
             const btnOver18 = document.getElementById('btn-over-18');
 
@@ -310,7 +322,6 @@
                 setTimeout(() => { agePopup.style.display = 'none'; }, 600); 
             });
 
-            // CRM Logic
             setTimeout(() => {
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbyBNHQLYkRTPkjvwcX1BJyjFdBOULFE8BJwWQZ9hjJqJx8qd3rfZv91LI5qcCK5OFkqgQ/exec';
                 const form = document.forms['contactForm'];
