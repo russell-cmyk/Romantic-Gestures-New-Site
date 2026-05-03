@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>About Us | Romantic Gestures NZ</title>
+    <meta name="title" content="About Us | Romantic Gestures NZ">
+    <meta name="description" content="Meet Natasha and Russell, the Chief Cupids at Romantic Gestures NZ. Discover our core values, mission, and how we help couples celebrate love for a lifetime.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.romanticgestures.co.nz/about/">
+    <meta property="og:title" content="About Us | Romantic Gestures NZ">
+    <meta property="og:image" content="images/russellandnatasha.jpg">
+
+    <link rel="icon" type="image/png" href="images/favicon-rglogo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+
+    <style>
+        /* --- GLOBAL COLOR & TYPOGRAPHY VARIABLES --- */
+        :root {
+            --brand-charcoal: #2C4270; 
+            --brand-burgundy: #6c2b35; 
+            --brand-gold: #c5a880; 
+            --hover-red: #c02026; 
+            --bg-ivory: #fcf9f5; 
+            --text-dark: #3a3333;
+            --text-light: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--bg-ivory);
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, .quote-block, .card-title { 
+            font-family: 'Cormorant Garamond', serif !important; 
+            font-weight: 500; 
+            color: var(--brand-charcoal);
+            line-height: 1.2; 
+        }
+        
+        a { text-decoration: none; color: inherit; transition: color 0.4s ease; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+        /* --- BOUTIQUE BUTTONS --- */
+        .btn-luxury {
+            display: inline-block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px;
+            padding: 16px 45px; border: 1px solid var(--brand-charcoal); color: var(--brand-charcoal);
+            background: transparent; transition: all 0.4s ease; cursor: pointer; font-weight: 500; 
+            border-radius: 4px; font-family: 'Raleway', sans-serif !important; text-align: center;
+        }
+        .btn-luxury:hover { background-color: var(--hover-red) !important; border-color: var(--hover-red) !important; color: var(--text-light) !important; }
+        .btn-luxury.btn-solid { background-color: var(--brand-charcoal); color: var(--text-light); border-color: var(--brand-charcoal); }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            position: relative; width: 100%; height: 40vh; min-height: 350px;
+            overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
+            background-image: url('images/table.jpg'); background-size: cover; background-position: center;
+        }
+        .header-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(44, 66, 112, 0.4), rgba(44, 66, 112, 0.7)); z-index: 1;
+        }
+        .header-content {
+            position: relative; z-index: 2; color: var(--text-light);
+            max-width: 900px; padding: 0 20px; animation: fadeIn 1.5s ease-out;
+            margin-top: 10vh;
+        }
+        .header-content h1 { font-size: 4rem; margin-bottom: 10px; color: var(--text-light); font-style: italic; }
+        .header-content p { font-size: 1.2rem; font-weight: 400; letter-spacing: 1px; font-family: 'Raleway', sans-serif; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- CONTENT SECTIONS --- */
+        .section-padding { padding: 60px 20px; }
+        .section-title { font-size: 3rem; margin-bottom: 20px; font-style: italic; text-align: center; color: var(--hover-red); }
+        
+        .content-split { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 60px; }
+        .content-text p { margin-bottom: 15px; font-size: 1.05rem; }
+        .content-text ul { margin-left: 20px; margin-bottom: 20px; font-size: 1.05rem; }
+        .content-text li { margin-bottom: 8px; }
+        .content-image { width: 100%; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); object-fit: cover; aspect-ratio: 4/5; }
+
+        .mission-box { background: white; padding: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-radius: 8px; margin: 40px 0; text-align: center; border-top: 3px solid var(--brand-gold); }
+        .mission-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--brand-charcoal); font-style: italic; margin-bottom: 20px; }
+
+        .profile-card { background: white; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-radius: 8px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; margin-bottom: 40px; }
+        .profile-card.reverse { grid-template-columns: 2fr 1fr; }
+        .profile-img { width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .profile-name { font-size: 2rem; color: var(--brand-charcoal); font-style: italic; margin-bottom: 5px; }
+        .profile-creds { font-size: 0.8rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; font-weight: 600; }
+        .profile-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--hover-red); font-style: italic; margin-top: 15px; text-align: center;}
+
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: center; margin-top: 30px;}
+        .media-item { padding: 20px; border: 1px solid rgba(197, 168, 128, 0.3); border-radius: 8px; font-weight: 500; color: var(--brand-charcoal); transition: all 0.3s ease;}
+        .media-item:hover { border-color: var(--brand-gold); background: white; box-shadow: 0 5px 20px rgba(0,0,0,0.03); transform: translateY(-3px);}
+
+        .cta-section { text-align: center; padding: 50px 20px; background: rgba(197, 168, 128, 0.1); border-radius: 12px; margin: 60px 0;}
+
+        @media (max-width: 768px) {
+            .content-split { grid-template-columns: 1fr; gap: 30px; }
+            .profile-card, .profile-card.reverse { grid-template-columns: 1fr; gap: 20px; text-align: center;}
+            .profile-card.reverse .profile-img { grid-row: 1; } /* Keeps image on top for mobile */
+            .header-content h1 { font-size: 3rem; }
+            .section-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <site-header></site-header>
+
+    <header class="page-header">
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1>Our People</h1>
+            <p>Meet the team behind the screen.</p>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            
+            <div class="content-split">
+                <div class="content-text">
+                    <h2 class="section-title" style="text-align: left;">Our core values make us who we are.</h2>
+                    <p>Hi, we’re Natasha and Russell, Chief Cupids at RomanticGestures.co.nz and RomanticGetawaysNZ.com.</p>
+                    <p>Our relationship began by chance and grew into a friendship filled with the love and respect our marriage now thrives on.</p>
+                    <p>I am Natasha, and together with my husband Russell, our aim is to share what we have learnt along the way about relationships. We have been together since 2006 and continue to enjoy regular ‘Date’ nights; which nurture the bond between us along our journey of life.</p>
+                    <p>By understanding how to incorporate <em>Romance</em> into our relationships we are able to take back some precious moments to appreciate all that we have.</p>
+                    <p>Russell and I will share with you tips and recommendations on activities you can do day to day and also how you too can have regular ‘Date’ nights to ensure that your relationship lasts the distance. These tips come from personal experience and have formed the basis of our relationship.</p>
+                    <p>Sadly, in today’s busy world, we often spell L O V E with 4 very different letters: T I M E. With time being of the essence, when couples make ‘time’ to celebrate their connection, expectations can (and should) be high. Love can be hard won, and often too easily lost; so we really need to nurture the most special relationships in our lives.</p>
+                    <p><strong>Romantic Gestures™ NZ</strong> sole aim is to ensure that you and your sweetheart’s Romantic expectations are completely fulfilled.</p>
+                    <p>Whether you are in love, or starting to fall in love, our Romantic Gifts, Romantic Getaways, Marriage Proposal Packages, Wedding Consultation, Date Night Packages or Gift Vouchers will leave you with <em>Romantic</em> memories you will treasure for years to come.</p>
+                    <p style="margin-top: 20px; font-style: italic; color: var(--brand-charcoal);">Celebrating Love for a Lifetime,<br>Natasha and Russell.<br>Your Romance Planners.</p>
+                    <div style="margin-top: 30px;">
+                        <a href="/contact/" class="btn-luxury btn-solid">How can we help you?</a>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/russellandnatasha.jpg" alt="Russell and Natasha" class="content-image">
+                </div>
+            </div>
+
+            <div class="mission-box">
+                <h2 class="section-title">Our Mission</h2>
+                <p class="mission-quote">“To support couples to achieve real results by enhancing the Romance in their relationship”</p>
+                <p style="margin-bottom: 15px; color: var(--text-dark);">We have selected 4 goals for how we are going to achieve this:</p>
+                <ul style="list-style-type: none; padding: 0; margin-bottom: 25px; color: var(--brand-charcoal); font-weight: 500;">
+                    <li style="margin-bottom: 10px;">✨ To add peace of mind by adding emotional value for our customers and clients</li>
+                    <li style="margin-bottom: 10px;">✨ To provide personal, stylised advice to our customers and clients based on our own relationship</li>
+                    <li style="margin-bottom: 10px;">✨ To strengthen the foundation of each couples relationship</li>
+                    <li style="margin-bottom: 10px;">✨ To continue to build and strengthen relationships with our clients and customers on a personal level</li>
+                </ul>
+                <p style="font-size: 0.95rem; color: #555; max-width: 900px; margin: 0 auto;">The team here at Romantic Gestures NZ are proud of the high level of service given to each customer and client and this is evident in the level of <a href="/testimonials/" style="color: var(--hover-red); font-weight: 600; text-decoration: underline;">feedback</a> received after each booking. We continue to improve on our services in order to meet our customers and clients high expectations. Our point of difference is our 24/7 availability for the duration of every booking.</p>
+            </div>
+
+            <div class="profile-card">
+                <div>
+                    <img src="images/natashahead.jpg" alt="Natasha Oliver" class="profile-img">
+                </div>
+                <div>
+                    <h3 class="profile-name">Natasha Oliver</h3>
+                    <span class="profile-creds">NZCertBusFLM | BEd (Tchg) Primary | LCQ</span>
+                    <p>Having worked in the hospitality industry for the past several years across Military bases, restaurants and cafes, complete with a teaching degree and running <strong>RomanticGestures™.co.nz</strong>, <strong>RomanticGetawaysNZ.com</strong> and CreativeStartUp.nz, creating bespoke packages for my clients is what I love to do.</p>
+                    <p>Enhancing their experiences with our added touches of Romance enables us to reach our dream of “Celebrating Love for a Lifetime” for every couple.</p>
+                    <p>I have a passion for outstanding <strong><em>customer service</em></strong> and I am the one who personally answers and responds to your queries and is the creative genius behind every package. Making sure you have a unique and bespoke experience is my passion and something that I take great pride in.</p>
+                    <p>I am also actively involved in our local community groups through giving back to those in need and we are excited to work with various charities when we can.</p>
+                    <p class="profile-quote">"One kind word or act can change someone’s entire day, be that change."</p>
+                </div>
+            </div>
+
+            <div class="profile-card reverse">
+                <div>
+                    <h3 class="profile-name">Russell Oliver</h3>
+                    <span class="profile-creds">BBus (Mktg) | Nat DipBus | Nat DipMkt</span>
+                    <p>I am a current serving Soldier in the Military with almost 20 years service as well the Business Manager/Director of <strong>RomanticGestures.co.nz</strong> and <strong>RomanticGetawaysNZ.com</strong>.</p>
+                    <p>I love meeting potential suppliers and accommodation providers as well as offering advice to new and developing businesses. My expertise is validated through the completion of two Diplomas that I have earnt while completing my Bachelor of Business (majoring in Marketing) along with a Graduate Diploma in Business.</p>
+                    <p>My experience as a business owner and operator in the Tourism, Defence & Consultant industries has provided me with a wide array of ownership experiences, leadership capabilities, people skills and problem-solving abilities, making me uniquely qualified to increase efficiency and bring success to any small business.</p>
+                </div>
+                <div>
+                    <img src="images/russellhead.jpg" alt="Russell Oliver" class="profile-img">
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2 class="section-title" style="margin-bottom: 15px;">Let us plan your special occasion today!</h2>
+                <p style="max-width: 800px; margin: 0 auto 30px;">We are proudly NZ owned and operated since 2014, providing clients with magical, memorable experiences that will last in their hearts forever. From concept to completion, we collaborate with other vendors within our industry to bring together a package that our clients are <a href="/testimonials/" style="color: var(--hover-red); font-weight: 600;">happy</a> with.</p>
+                <a href="/contact/" class="btn-luxury btn-solid">Contact Us</a>
+            </div>
+
+            <div>
+                <h2 class="section-title">In the media</h2>
+                <div class="media-grid">
+                    <div class="media-item">Couples Choice Awards NZ - 2025</div>
+                    <div class="media-item">The Hits Radio NZ - 2021</div>
+                    <div class="media-item">More FM Radio NZ - 2021</div>
+                    <div class="media-item">Lux Life Magazine - 2020</div>
+                    <div class="media-item">ABC Radio Adelaide - 2020</div>
+                    <div class="media-item">New Zealand Women's Weekly - 2015</div>
+                    <div class="media-item">Romance Travel Magazine - 2015</div>
+                    <div class="media-item">That's Life Magazine - 2014</div>
+                    <div class="media-item">Manawatu Standard - 2013</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <site-footer></site-footer>
+
+</body>
+</html>
