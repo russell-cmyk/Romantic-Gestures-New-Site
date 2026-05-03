@@ -96,10 +96,8 @@ class SiteFooter extends HTMLElement {
                     <div class="partners-logos">
                         <a href="https://track.roeye.co.nz/click?pid=2199&amp;offer_id=10" target="_blank"><img src="images/linden.jpg" alt="Linden Leaves"></a>
                         <a href="https://adventurehelicopters.co.nz/?ap_id=RomanticGestures" target="_blank"><img src="images/helicopter.jpg" alt="Adventure Helicopters"></a>
-                        
-                        <a href="https://coupleschoice.nz/winners-2025/" target="_blank"><img src="images/couple-choice.png" alt="Couples Choice Winner"></a>
                         <a href="https://www.newzealand.com/int/" target="_blank"><img src="images/newzealand-tourism.png" alt="100% Pure New Zealand" style="background:var(--brand-charcoal); padding: 2px;"></a>
-                        
+                        <a href="https://coupleschoice.nz/winners-2025/" target="_blank"><img src="images/couple-choice.png" alt="Couples Choice Winner"></a>
                         <div class="shielded-container">
                             <img alt="shielded" id="shielded-logo" src="https://shielded.co.nz/img/custom-logo.png" height="50" width="50" style="cursor: pointer; display: block; max-width: 50px;">
                         </div>
