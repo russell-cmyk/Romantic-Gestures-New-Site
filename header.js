@@ -84,7 +84,7 @@ class SiteHeader extends HTMLElement {
                 <nav class="nav-links">
                     <a href="/">HOME</a>
                     <div class="dropdown">
-                        <a href="/about/">ABOUT</a>
+                        <a href="about.html">ABOUT</a>
                         <div class="dropdown-content">
                             <a href="/testimonials/">Testimonials</a>
                             <a href="/faqs/">FAQ's</a>
