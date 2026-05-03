@@ -58,8 +58,8 @@
         /* --- AGE VERIFICATION POPUP --- */
         .age-popup-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            /* Removed blue, using neutral dark tint with blur */
-            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px); 
+            /* Removed blue tint, changed to neutral dark transparency, increased blur */
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(15px); 
             z-index: 9999; display: flex; align-items: center; justify-content: center;
             opacity: 1; transition: opacity 0.6s ease;
         }
@@ -83,7 +83,7 @@
         .btn-luxury:hover { background-color: var(--hover-red) !important; border-color: var(--hover-red) !important; color: var(--text-light) !important; }
         .btn-luxury.btn-solid { background-color: var(--brand-charcoal); color: var(--text-light); border-color: var(--brand-charcoal); }
 
-        /* --- REDUCED HERO SLIDER --- */
+        /* --- HERO SLIDER --- */
         .hero-slider {
             position: relative; width: 100%; height: 60vh; min-height: 450px;
             overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
@@ -113,14 +113,13 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- TIGHTENED INTRO SECTION --- */
+        /* --- INTRO SECTION --- */
         .intro-section { padding: 30px 20px 10px; text-align: center; } 
         .intro-section h2 { font-size: 3.5rem; margin-bottom: 10px; font-style: italic; }
         .intro-section p { max-width: 800px; margin: 0 auto 20px; font-size: 1.1rem; color: var(--text-dark); }
-        
         .quote-block { margin: 15px auto 25px; font-size: 2.1rem; color: var(--brand-gold); font-style: italic; }
 
-        /* --- ROUNDED SERVICES GRID --- */
+        /* --- SERVICES GRID --- */
         .services-section { padding: 10px 20px 30px; } 
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; } 
         .service-card { 
@@ -130,7 +129,7 @@
         }
         .card-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         
-        /* Reduced the baseline blue opacity from 0.35 to 0.15 */
+        /* Reduced blue opacity */
         .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 66, 112, 0.15); transition: background 0.6s ease; }
         
         .card-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); z-index: 2; }
@@ -139,22 +138,22 @@
         .card-subtitle { font-family: 'Raleway', sans-serif !important; font-size: 0.95rem; opacity: 0; max-height: 0; margin-top: 0; overflow: hidden; transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); line-height: 1.7; font-weight: 400; position: static;}
         
         .service-card:hover .card-bg { transform: scale(1.05); }
-        
-        /* Reduced hover blue opacity from 0.85 to 0.5 */
-        .service-card:hover .card-overlay { background: rgba(44, 66, 112, 0.5); } 
+        /* Reduced blue hover opacity */
+        .service-card:hover .card-overlay { background: rgba(44, 66, 112, 0.55); } 
         .service-card:hover .card-title { color: var(--brand-gold); }
         .service-card:hover .card-subtitle { opacity: 1; max-height: 300px; margin-top: 15px; }
 
-        /* --- TIGHTENED FEATURE SPLIT --- */
+        /* --- FEATURE SPLIT --- */
         .feature-split { padding: 30px 20px 40px; background-color: transparent; } 
         
-        /* Changed align-items to 'stretch' to ensure boxes are equal height */
+        /* Added align-items: stretch so boxes balance correctly */
         .feature-split-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; align-items: stretch; margin-bottom: 40px; }
         
-        .feature-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 12px;}
+        /* Modernized video wrapper to behave nicely in grids */
+        .feature-video { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 12px;}
         .feature-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        .blog-card { background: white; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-radius: 8px; display: flex; flex-direction: column; justify-content: center;}
+        .blog-card { background: white; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); border-radius: 8px;}
         .blog-date { font-size: 0.75rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; font-weight: 600;}
 
         @media (max-width: 768px) {
@@ -248,26 +247,31 @@
             
             <div class="feature-split-inner">
                 
-                <div class="blog-card" style="text-align: center;">
+                <div class="blog-card" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
                     <h2 style="font-size: 2.2rem; margin-bottom: 15px; color: var(--brand-charcoal); font-style: italic;">Our Proposals</h2>
                     <p style="font-size: 0.95rem; line-height: 1.9; color: var(--text-dark); font-style: italic; font-family: 'Raleway', sans-serif;">"Natasha and her team at Romantic Gestures created the absolute perfect marriage proposal for us. She took our vision and transformed it into a breathtaking reality. The attention to detail, the stunning location, and the seamless execution made it a truly magical moment we will cherish forever."</p>
                 </div>
                 
-                <div class="blog-card" style="align-items: flex-start; text-align: left;">
+                <div class="blog-card" style="display: flex; flex-direction: column;">
                     <h2 style="font-size: 2.2rem; margin-bottom: 10px; color: var(--brand-charcoal); font-style: italic;">From the Blog</h2>
                     <h3><a href="/blog/post/how-to-plan-perfect-date/">How to plan the perfect Date Night</a></h3>
                     <span class="blog-date">February 14, 2026</span>
-                    <p style="margin-bottom: 20px; font-weight: 400; color: #555; font-size: 0.95rem; line-height: 1.8;">Coming up with fresh, romantic ideas for date night can be a challenge. Whether you have been together for 6 months or 60 years, keeping the spark alive requires intention. Here are our top secrets to executing a date night that will leave your partner speechless...</p>
-                    
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="/blog/post/how-to-plan-perfect-date/" class="btn-luxury">Read More</a>
-                        <a href="/shop/" class="btn-luxury btn-solid">Shop Now</a>
-                    </div>
+                    <p style="margin-bottom: 20px; font-weight: 400; color: #555; font-size: 0.95rem; line-height: 1.8; flex-grow: 1;">Coming up with fresh, romantic ideas for date night can be a challenge. Whether you have been together for 6 months or 60 years, keeping the spark alive requires intention. Here are our top secrets to executing a date night that will leave your partner speechless...</p>
+                    <a href="/blog/post/how-to-plan-perfect-date/" class="btn-luxury" style="align-self: flex-start;">Read More</a>
+                </div>
+
+                <div class="feature-video" style="display: flex;">
+                    <iframe src="https://www.youtube.com/embed/7uBCCwjRLLU?modestbranding=1&rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="blog-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 15px; color: var(--brand-charcoal); font-style: italic;">Ready to Romance?</h2>
+                    <a href="/shop/" class="btn-luxury btn-solid">Shop Now</a>
                 </div>
 
             </div>
-            
-            </div>
+
+        </div>
     </section>
 
     <site-footer></site-footer>
