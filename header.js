@@ -77,12 +77,12 @@ class SiteHeader extends HTMLElement {
         <header class="main-header">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="/">
+                    <a href="index.html">
                         <img src="images/romanticgestures-logo.png" alt="Romantic Gestures NZ" class="brand-logo">
                     </a>
                 </div>
                 <nav class="nav-links">
-                    <a href="/">HOME</a>
+                    <a href="index.html">HOME</a>
                     <div class="dropdown">
                         <a href="about.html">ABOUT</a>
                         <div class="dropdown-content">
@@ -103,7 +103,7 @@ class SiteHeader extends HTMLElement {
                             <a href="/events/">Events</a>
                         </div>
                     </div>
-                    <a href="/contact/">CONTACT</a>
+                    <a href="contact.html">CONTACT</a>
                     <a href="/blog/">BLOG</a>
                     <a href="/testimonials/">TESTIMONIALS</a>
                     <a href="/shop/" class="cart-icon" style="color: var(--brand-gold);">
