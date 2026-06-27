@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT97K9ZVVW"></script>
-                <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-LT97K9ZVVW');
-                </script>
-                <!-- End Google Analytics -->
-  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT97K9ZVVW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LT97K9ZVVW');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Romantic Gestures NZ</title>
@@ -19,7 +16,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.romanticgestures.co.nz/contact/">
     <meta property="og:title" content="Contact Us | Romantic Gestures NZ">
-    <meta property="og:image" content="images/contact_banner.jpg">
+    <meta property="og:image" content="images/contacthero-1.jpg">
 
     <link rel="icon" type="image/png" href="images/favicon-rglogo.png">
 
@@ -73,18 +70,22 @@
         .btn-luxury:hover { background-color: var(--hover-red) !important; border-color: var(--hover-red) !important; color: var(--text-light) !important; }
         .btn-luxury.btn-solid { background-color: var(--brand-charcoal); color: var(--text-light); border-color: var(--brand-charcoal); }
 
-        /* --- PAGE HEADER --- */
-        .page-header {
+        /* --- PAGE HEADER (SLIDER) --- */
+        .hero-slider {
             position: relative; width: 100%; height: 40vh; min-height: 350px;
             overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;
-            background-image: url('images/contact_banner.jpg'); background-size: cover; background-position: center;
         }
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease-in-out; z-index: 1;
+        }
+        .slide.active { opacity: 1; z-index: 2; }
         .header-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(44, 66, 112, 0.4), rgba(44, 66, 112, 0.7)); z-index: 1;
+            background: linear-gradient(to bottom, rgba(44, 66, 112, 0.4), rgba(44, 66, 112, 0.7)); z-index: 3;
         }
         .header-content {
-            position: relative; z-index: 2; color: var(--text-light);
+            position: relative; z-index: 4; color: var(--text-light);
             max-width: 900px; padding: 0 20px; animation: fadeIn 1.5s ease-out;
             margin-top: 10vh;
         }
@@ -141,7 +142,12 @@
 
     <site-header></site-header>
 
-    <header class="page-header">
+    <header class="hero-slider">
+        <div class="slide active" style="background-image: url('images/contacthero-1.jpg');"></div>
+        <div class="slide" style="background-image: url('images/contacthero-2.jpg');"></div>
+        <div class="slide" style="background-image: url('images/contacthero-3.jpg');"></div>
+        <div class="slide" style="background-image: url('images/contacthero-4.jpg');"></div>
+        
         <div class="header-overlay"></div>
         <div class="header-content">
             <h1>Contact Us</h1>
@@ -154,7 +160,7 @@
             
             <div class="content-split">
                 <div>
-                    <h2 class="section-title" style="text-align: left;">Send Us A Message</h2>
+                    <h2 class="section-title" style="text-align: left;">Send us a message</h2>
                     <p style="margin-bottom: 25px; font-weight: 500;">Be sure to check your spam folder as our emails may end up there once we have replied to your query.</p>
                     
                     <div class="contact-form">
@@ -212,7 +218,7 @@
                         We would love for you to read it and as it is easily accessible click on the link and grab your copy today. I can assure you it is a great read.
                     </p>
 
-                    <a href="https://www.serenitywoodsromance.com/an-ocean-between-us.html" target="_blank" class="btn-luxury">Grab Your Copy</a>
+                    <a href="downloads/An_Ocean_Between_Us.pdf" download="An_Ocean_Between_Us.pdf" class="btn-luxury">Download Book</a>
                 </div>
 
             </div>
@@ -222,5 +228,21 @@
 
     <site-footer></site-footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            const slideInterval = 5000; 
+
+            if (slides.length > 0) {
+                function nextSlide() {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }
+                setInterval(nextSlide, slideInterval);
+            }
+        });
+    </script>
 </body>
 </html>
